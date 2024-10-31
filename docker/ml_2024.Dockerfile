@@ -10,7 +10,8 @@ RUN apt-get update \
     gcc \
     wget \
     sudo \
-    vim
+    vim \
+    htop
 
 COPY requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
