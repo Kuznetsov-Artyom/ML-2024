@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+LABEL maintainer="https://github.com/Kuznetsov-Artyom"
+
 RUN apt-get update \
     && apt-get install -q -y --no-install-recommends \
     git \
@@ -9,7 +11,6 @@ RUN apt-get update \
     wget \
     sudo \
     vim
-
 
 COPY requirements.txt /tmp/
 RUN pip install --requirement /tmp/requirements.txt
@@ -21,3 +22,5 @@ RUN useradd -m user \
 USER user
 
 WORKDIR /home/user
+
+ENTRYPOINT [ "/bin/bash" ]
